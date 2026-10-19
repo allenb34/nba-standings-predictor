@@ -19,7 +19,8 @@ from nba_api.stats.static import teams as static_teams
 
 ROOT = Path(__file__).resolve().parent.parent
 PRED = ROOT / "outputs" / "predictions_2026_27.csv"
-# Exploratory coach-adjusted v2 (branch v2-coach-effects), tracked alongside but never replacing the locked v1.
+# Exploratory coach-adjusted v2: frozen copy of the file on branch v2-coach-effects (commit 77093af), tracked alongside
+# but never replacing the locked v1. Re-copy it with git checkout v2-coach-effects -- <path> only if v2 is deliberately revised.
 V2 = ROOT / "outputs" / "v2_coach" / "predictions_2026_27_v2_EXPLORATORY.csv"
 CACHE = ROOT / "data" / "raw" / "standings"
 OUT = ROOT / "docs" / "data.json"
