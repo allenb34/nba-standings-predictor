@@ -1,0 +1,25 @@
+{
+  "locked_model": "hybrid",
+  "decision_rule_result": "hybrid",
+  "reason": "hybrid beats both naive and team-only",
+  "cv": {
+    "hybrid": {
+      "mae": 6.8847,
+      "spearman_east": 0.7256,
+      "spearman_west": 0.7095,
+      "spearman_min": 0.356
+    },
+    "team_only": {
+      "mae": 7.6915,
+      "spearman_east": 0.617,
+      "spearman_west": 0.6018,
+      "spearman_min": 0.2809
+    },
+    "naive": {
+      "mae": 7.8867,
+      "spearman_east": 0.5928,
+      "spearman_west": 0.5828,
+      "spearman_min": 0.2056
+    }
+  }
+}
