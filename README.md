@@ -6,6 +6,12 @@ The commit timestamp (and tag `v1-lock`) is the proof.
 - Predictions: [`outputs/predictions_2026_27.csv`](outputs/predictions_2026_27.csv)
 - Model spec, decision rule, CV results, limitations: [`PREREGISTRATION.md`](PREREGISTRATION.md)
 
+## Post-lock exploratory analysis (not official)
+- **Coach effects (v2):** [`COACH_ANALYSIS.md`](https://github.com/allenb34/nba-standings-predictor/blob/v2-coach-effects/COACH_ANALYSIS.md)
+  on branch [`v2-coach-effects`](https://github.com/allenb34/nba-standings-predictor/tree/v2-coach-effects).
+  Tests whether a head-coach "ridge effect" improves the locked model. Result: it doesn't (LOSO MAE 6.891 vs 6.885).
+  The v1 predictions above remain the official, scored predictions for the whole season.
+
 ## Method in one paragraph
 OLS on team win% using four features: prior-season net rating, minutes-weighted roster BPM (each player's prior-season
 Basketball-Reference BPM, weighted by his prior-season minutes), roster continuity, and minutes-weighted roster age.
