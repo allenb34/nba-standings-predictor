@@ -66,7 +66,7 @@ Their effect is 0 by construction (no prior seasons). Their teams move only thro
 | POR | Micah Nori | 0.0 | 44.84 | 44.84 | −0.001 | 6 → 6 |
 | DAL | Dusty May | 0.0 | 33.92 | 33.92 | −0.001 | 11 → 11 |
 
-Across all 30 teams the largest change is 0.004 wins, and no conference rank changes
+Across all 30 teams the largest change is under 0.005 wins (0.0043), and no conference rank changes
 (`outputs/v2_coach/predictions_2026_27_v2_EXPLORATORY.csv`).
 Tiago Splitter (CHI) also gets 0. He coached POR in 2025-26, but Chauncey Billups started that season, so the
 starting-coach rule never credits Splitter with a season.
