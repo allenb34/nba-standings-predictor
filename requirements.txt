@@ -1,0 +1,9 @@
+pandas>=2.2
+numpy>=2.0
+statsmodels>=0.14
+scipy>=1.13
+nba_api>=1.5
+requests>=2.31
+lxml>=5.0
+truststore>=0.9
+matplotlib>=3.8
