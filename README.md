@@ -16,6 +16,12 @@ The test was pre-specified, and the fix was re-locked as `v1.1-lock` before tip-
 **not statistically reliable**. The superseded v1 predictions stay public in
 [`outputs/v1/`](outputs/v1/predictions_2026_27_v1.csv), and both versions will be scored at season's end.
 
+## Post-lock note: projections above 60 wins run high
+Added after `v1.1-lock`. The locked predictions are unchanged. In leave-one-season-out validation, the model is well
+calibrated up to about 60 wins: in every bin below 60, the average actual result is within 0.6 wins of the projection.
+Its **60+ win projections have run about 3.5 wins high**, and 6 of those 7 teams finished below their projection.
+So OKC's **69.7** is best read as a **mid-60s team with upside**, not a 70-win forecast.
+
 ## Post-lock exploratory analysis (not official)
 - **Coach effects:** [`COACH_ANALYSIS.md`](https://github.com/allenb34/nba-standings-predictor/blob/v2-coach-effects/COACH_ANALYSIS.md)
   on branch [`v2-coach-effects`](https://github.com/allenb34/nba-standings-predictor/tree/v2-coach-effects).
