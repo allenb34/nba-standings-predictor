@@ -19,6 +19,8 @@ from nba_api.stats.static import teams as static_teams
 
 ROOT = Path(__file__).resolve().parent.parent
 PRED = ROOT / "outputs" / "predictions_2026_27.csv"
+# Exploratory coach-adjusted v2 (branch v2-coach-effects), tracked alongside but never replacing the locked v1.
+V2 = ROOT / "outputs" / "v2_coach" / "predictions_2026_27_v2_EXPLORATORY.csv"
 CACHE = ROOT / "data" / "raw" / "standings"
 OUT = ROOT / "docs" / "data.json"
 SEASON = "2026-27"
@@ -57,14 +59,17 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
     for conf, g in df.groupby("conference"):
         gp = g[g["gp"] > 0]
         # Spearman needs >= 3 teams with some spread in actual win%; otherwise it's undefined.
-        rho = spearmanr(gp["predicted_wins"], gp["WINS"] / gp["gp"]).statistic if len(gp) >= 3 and (gp["WINS"] / gp["gp"]).nunique() > 1 else None
+        ok = len(gp) >= 3 and (gp["WINS"] / gp["gp"]).nunique() > 1
+        rho = spearmanr(gp["predicted_wins"], gp["WINS"] / gp["gp"]).statistic if ok else None
+        rho_v2 = spearmanr(gp["v2_wins"], gp["WINS"] / gp["gp"]).statistic if ok else None
         g = g.sort_values(["PlayoffRank" if played.any() else "predicted_conf_rank", "predicted_conf_rank"])
         conferences[conf] = {
             "spearman": r(rho, 3),
+            "spearman_v2": r(rho_v2, 3),
             "teams": [{
                 "team": t.team, "name": t.name, "actual_rank": int(t.PlayoffRank) if played.any() else None,
                 "predicted_rank": int(t.predicted_conf_rank), "wins": int(t.WINS), "losses": int(t.LOSSES),
-                "predicted_wins": r(t.predicted_wins), "pi80_low": r(t.pi80_low), "pi80_high": r(t.pi80_high),
+                "predicted_wins": r(t.predicted_wins), "v2_wins": r(t.v2_wins), "pi80_low": r(t.pi80_low), "pi80_high": r(t.pi80_high),
                 "pace_wins": r(t.pace_wins), "diff": r(t.diff),
                 "in_pi": None if pd.isna(t.in_pi) else bool(t.in_pi),
             } for t in g.itertuples()],
@@ -77,6 +82,7 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
         "games_played": int(df["gp"].sum() // 2),
         "teams_with_games": int(played.sum()),
         "mae": r((p["pace_wins"] - p["predicted_wins"]).abs().mean() if len(p) else None, 2),
+        "mae_v2": r((p["pace_wins"] - p["v2_wins"]).abs().mean() if len(p) else None, 2),
         "pi80_coverage": r(p["in_pi"].astype(bool).mean() if len(p) else None, 3),
         "conferences": conferences,
     }
@@ -84,7 +90,9 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
 
 def main():
     day = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else date.today()  # optional: replay a cached day
-    data = build(pd.read_csv(PRED), standings(day))
+    pred = pd.read_csv(PRED).merge(pd.read_csv(V2)[["team", "v2_wins"]], on="team", how="left", validate="1:1")
+    assert pred["v2_wins"].notna().all() and abs(pred["v2_wins"].sum() - 1230) < 1e-6
+    data = build(pred, standings(day))
     OUT.write_text(json.dumps(data, indent=1), encoding="utf-8")
     print(f"{OUT.relative_to(ROOT)}: {data['games_played']} games, MAE {data['mae']}, "
           f"Spearman E {data['conferences']['East']['spearman']} / W {data['conferences']['West']['spearman']}")
