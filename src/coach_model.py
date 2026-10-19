@@ -91,7 +91,9 @@ def summarize(cv: pd.DataFrame) -> pd.DataFrame:
                                 spearman_west=("spearman_West", "mean"))
     s["spearman_min"] = cv.groupby("model")[["spearman_East", "spearman_West"]].min().min(axis=1)
     piv = cv.pivot(index="season_end", columns="model", values="mae")
-    s["seasons_beating_v1"] = [int((piv[m] < piv["v1"]).sum()) if m != "v1" else np.nan for m in s.index]
+    # a season counts only if the gap exceeds 0.01 wins; smaller gaps are ties (lambda ~ 10,000 makes most folds identical)
+    s["seasons_beating_v1"] = [int((piv["v1"] - piv[m] > 0.01).sum()) if m != "v1" else np.nan for m in s.index]
+    s["seasons_losing_to_v1"] = [int((piv[m] - piv["v1"] > 0.01).sum()) if m != "v1" else np.nan for m in s.index]
     return s.loc[["v1", "v1_coach", "v1_coach_no_midseason"]]
 
 

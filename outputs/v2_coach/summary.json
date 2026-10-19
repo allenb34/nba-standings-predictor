@@ -6,21 +6,24 @@
       "spearman_east": 0.7256,
       "spearman_west": 0.7095,
       "spearman_min": 0.356,
-      "seasons_beating_v1": NaN
+      "seasons_beating_v1": NaN,
+      "seasons_losing_to_v1": NaN
     },
     "v1_coach": {
       "mae": 6.8911,
       "spearman_east": 0.7234,
       "spearman_west": 0.708,
       "spearman_min": 0.356,
-      "seasons_beating_v1": 7.0
+      "seasons_beating_v1": 0.0,
+      "seasons_losing_to_v1": 1.0
     },
     "v1_coach_no_midseason": {
       "mae": 6.893,
       "spearman_east": 0.7244,
       "spearman_west": 0.708,
       "spearman_min": 0.356,
-      "seasons_beating_v1": 8.0
+      "seasons_beating_v1": 0.0,
+      "seasons_losing_to_v1": 1.0
     }
   },
   "lambda_by_fold": {
