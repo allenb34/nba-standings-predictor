@@ -1,24 +1,32 @@
 # NBA 2026-27 Standings Predictor
 
 Pre-registered regular-season win predictions for all 30 NBA teams, committed before opening tip on Oct 20, 2026.
-The commit timestamp (and tag `v1-lock`) is the proof.
+The commit timestamp (and tag `v1.1-lock`) is the proof.
 
 **Live dashboard (predicted vs actual, updated weekly):** https://allenb34.github.io/nba-standings-predictor/
 
-- Predictions: [`outputs/predictions_2026_27.csv`](outputs/predictions_2026_27.csv)
-- Model spec, decision rule, CV results, limitations: [`PREREGISTRATION.md`](PREREGISTRATION.md)
+- Official predictions (v1.1): [`outputs/predictions_2026_27.csv`](outputs/predictions_2026_27.csv)
+- Model spec, decision rule, CV results, limitations, **and the disclosure of the v1 → v1.1 revision**: [`PREREGISTRATION.md`](PREREGISTRATION.md)
+
+## Revision before tip-off: v1 → v1.1
+The first lock (`v1-lock`) used each player's prior-season minutes as his role, which undervalued stars returning from
+injury, like Haliburton. A review prompted by questioning specific teams' projections led to a revised role weighting.
+The test was pre-specified, and the fix was re-locked as `v1.1-lock` before tip-off:
+[`ROSTER_WEIGHTS_REVIEW.md`](ROSTER_WEIGHTS_REVIEW.md). Its validation gain over v1 (LOSO MAE 6.81 vs 6.89) is
+**not statistically reliable**. The superseded v1 predictions stay public in
+[`outputs/v1/`](outputs/v1/predictions_2026_27_v1.csv), and both versions will be scored at season's end.
 
 ## Post-lock exploratory analysis (not official)
-- **Coach effects (v2):** [`COACH_ANALYSIS.md`](https://github.com/allenb34/nba-standings-predictor/blob/v2-coach-effects/COACH_ANALYSIS.md)
+- **Coach effects:** [`COACH_ANALYSIS.md`](https://github.com/allenb34/nba-standings-predictor/blob/v2-coach-effects/COACH_ANALYSIS.md)
   on branch [`v2-coach-effects`](https://github.com/allenb34/nba-standings-predictor/tree/v2-coach-effects).
-  Tests whether a head-coach "ridge effect" improves the locked model. Result: it doesn't (LOSO MAE 6.891 vs 6.885).
-  The v1 predictions above remain the official, scored predictions for the whole season.
+  Tests whether a head-coach "ridge effect" improves the model. Result: it doesn't. Cross-validation shrinks every coach effect to about zero.
 
 ## Method in one paragraph
-OLS on team win% using four features: prior-season net rating, minutes-weighted roster BPM (each player's prior-season
-Basketball-Reference BPM, weighted by his prior-season minutes), roster continuity, and minutes-weighted roster age.
-It's trained on 450 team-seasons (2011-12 … 2025-26). Predicted win% × 82 is shifted so the league sums to 1,230 wins.
-In leave-one-season-out CV it beats a naive baseline (0.6 × last season's wins + 0.4 × 41) on MAE, 6.89 vs 7.89 wins.
+OLS on team win% using four features: prior-season net rating, roster BPM (each player's two-season Basketball-Reference
+BPM, weighted by his larger recent-season minutes, over the team's top 10 players), roster continuity, and
+roster age. It's trained on 450 team-seasons (2011-12 … 2025-26). Predicted win% × 82 is shifted so the league sums
+to 1,230 wins. In leave-one-season-out CV it beats a naive baseline (0.6 × last season's wins + 0.4 × 41) on MAE,
+6.81 vs 7.89 wins, and does so in all 15 seasons.
 
 ## Reproduce
 ```bash
@@ -31,7 +39,8 @@ python src/model.py      # LOSO CV, diagnostics, predictions, sanity asserts
 ## Limitations
 Historical rosters are built from players who actually logged minutes in season t, each on his first team. That's mild
 hindsight compared with an opening-day roster: players injured for the whole season are missing. Rookies are a flat
-replacement level (−2.0 BPM). See [`PREREGISTRATION.md`](PREREGISTRATION.md) for the full list.
+replacement level (−2.0 BPM). The v1.1 revision was made after seeing v1's predictions. See
+[`PREREGISTRATION.md`](PREREGISTRATION.md) for the full list.
 
 ## Data
 Basketball-Reference advanced tables (2009-10 … 2025-26), stats.nba.com via `nba_api` (team advanced stats, 2026-27 rosters).

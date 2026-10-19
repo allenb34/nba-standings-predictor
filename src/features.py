@@ -68,11 +68,12 @@ def load_teams() -> pd.DataFrame:
     return df[["season_end", "team", "GP", "W", "W_PCT", "NET_RATING"]]
 
 
-# v1 defaults. v1.1 variants (src/weight_variants.py) switch these:
+# Player-role weighting. Official settings are v1.1 (tag v1.1-lock); v1 (tag v1-lock) was
+# {"weight": "t1", "bpm": "t1", "top_k": None}. See ROSTER_WEIGHTS_REVIEW.md and src/weight_variants.py.
 #   weight="healthy": role = max(t-1, t-2 minutes); a t-2-only player keeps his full t-2 minutes (no 500 cap)
 #   bpm="blend2":     minutes-weighted average of t-1 and t-2 BPM
 #   top_k=10:         roster BPM and age use only the 10 heaviest-weighted players
-VARIANT = {"weight": "t1", "bpm": "t1", "top_k": None}
+VARIANT = {"weight": "healthy", "bpm": "blend2", "top_k": 10}
 
 
 def player_inputs(ids: pd.Series, t: int, totals: pd.DataFrame) -> pd.DataFrame:

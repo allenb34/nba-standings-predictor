@@ -1,4 +1,4 @@
-"""Weekly tracker: current 2026-27 standings vs the LOCKED predictions -> docs/data.json.
+"""Weekly tracker: current 2026-27 standings vs the official v1.1 predictions (and the superseded v1) -> docs/data.json.
 
 Reads outputs/predictions_2026_27.csv (never writes it). The raw standings pull is cached per day at
 data/raw/standings/standings_2026-27_{YYYY-MM-DD}.csv, so rerunning the same day makes zero network calls.
@@ -19,9 +19,8 @@ from nba_api.stats.static import teams as static_teams
 
 ROOT = Path(__file__).resolve().parent.parent
 PRED = ROOT / "outputs" / "predictions_2026_27.csv"
-# Exploratory coach-adjusted v2: frozen copy of the file on branch v2-coach-effects (commit 77093af), tracked alongside
-# but never replacing the locked v1. Re-copy it with git checkout v2-coach-effects -- <path> only if v2 is deliberately revised.
-V2 = ROOT / "outputs" / "v2_coach" / "predictions_2026_27_v2_EXPLORATORY.csv"
+# Superseded original lock (tag v1-lock), tracked alongside so both versions are scored, as PREREGISTRATION.md promises.
+V1 = ROOT / "outputs" / "v1" / "predictions_2026_27_v1.csv"
 CACHE = ROOT / "data" / "raw" / "standings"
 OUT = ROOT / "docs" / "data.json"
 SEASON = "2026-27"
@@ -62,15 +61,15 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
         # Spearman needs >= 3 teams with some spread in actual win%; otherwise it's undefined.
         ok = len(gp) >= 3 and (gp["WINS"] / gp["gp"]).nunique() > 1
         rho = spearmanr(gp["predicted_wins"], gp["WINS"] / gp["gp"]).statistic if ok else None
-        rho_v2 = spearmanr(gp["v2_wins"], gp["WINS"] / gp["gp"]).statistic if ok else None
+        rho_v1 = spearmanr(gp["v1_wins"], gp["WINS"] / gp["gp"]).statistic if ok else None
         g = g.sort_values(["PlayoffRank" if played.any() else "predicted_conf_rank", "predicted_conf_rank"])
         conferences[conf] = {
             "spearman": r(rho, 3),
-            "spearman_v2": r(rho_v2, 3),
+            "spearman_v1": r(rho_v1, 3),
             "teams": [{
                 "team": t.team, "name": t.name, "actual_rank": int(t.PlayoffRank) if played.any() else None,
                 "predicted_rank": int(t.predicted_conf_rank), "wins": int(t.WINS), "losses": int(t.LOSSES),
-                "predicted_wins": r(t.predicted_wins), "v2_wins": r(t.v2_wins), "pi80_low": r(t.pi80_low), "pi80_high": r(t.pi80_high),
+                "predicted_wins": r(t.predicted_wins), "v1_wins": r(t.v1_wins), "pi80_low": r(t.pi80_low), "pi80_high": r(t.pi80_high),
                 "pace_wins": r(t.pace_wins), "diff": r(t.diff),
                 "in_pi": None if pd.isna(t.in_pi) else bool(t.in_pi),
             } for t in g.itertuples()],
@@ -83,7 +82,7 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
         "games_played": int(df["gp"].sum() // 2),
         "teams_with_games": int(played.sum()),
         "mae": r((p["pace_wins"] - p["predicted_wins"]).abs().mean() if len(p) else None, 2),
-        "mae_v2": r((p["pace_wins"] - p["v2_wins"]).abs().mean() if len(p) else None, 2),
+        "mae_v1": r((p["pace_wins"] - p["v1_wins"]).abs().mean() if len(p) else None, 2),
         "pi80_coverage": r(p["in_pi"].astype(bool).mean() if len(p) else None, 3),
         "conferences": conferences,
     }
@@ -91,8 +90,8 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
 
 def main():
     day = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else date.today()  # optional: replay a cached day
-    pred = pd.read_csv(PRED).merge(pd.read_csv(V2)[["team", "v2_wins"]], on="team", how="left", validate="1:1")
-    assert pred["v2_wins"].notna().all() and abs(pred["v2_wins"].sum() - 1230) < 1e-6
+    pred = pd.read_csv(PRED).merge(pd.read_csv(V1).rename(columns={"predicted_wins": "v1_wins"})[["team", "v1_wins"]], on="team", how="left", validate="1:1")
+    assert pred["v1_wins"].notna().all() and abs(pred["v1_wins"].sum() - 1230) < 1e-6
     data = build(pred, standings(day))
     OUT.write_text(json.dumps(data, indent=1), encoding="utf-8")
     print(f"{OUT.relative_to(ROOT)}: {data['games_played']} games, MAE {data['mae']}, "

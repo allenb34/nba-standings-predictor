@@ -35,18 +35,20 @@
       numbers as noisy until roughly 20 games in.
     </p>
     <p class="note">
-      <strong>Coach-adjusted (v2, exploratory)</strong> adds a cross-validated head-coach effect to the locked model.
-      Validation shrank every coach's effect to almost zero, so v2 differs from the official predictions by less than
-      0.005 wins. It is tracked for comparison only; the locked v1 predictions are the official, scored ones.
-      <a href="https://github.com/allenb34/nba-standings-predictor/blob/v2-coach-effects/COACH_ANALYSIS.md">Read the coach analysis</a>.
+      <strong>Revised before tip-off.</strong> The official predictions are <strong>v1.1</strong>, re-locked on Oct 19
+      after a review found the first version (v1) undervalued stars returning from injury, such as Tyrese Haliburton. The
+      change was made after seeing v1's numbers, and its validation gain is not statistically reliable, so the
+      <strong>original v1 predictions</strong> are shown and scored alongside.
+      <a href="https://github.com/allenb34/nba-standings-predictor/blob/main/PREREGISTRATION.md#disclosure-why-the-official-predictions-changed-after-v1-lock">Read the full disclosure</a>.
     </p>
   </section>
   <div id="conferences"></div>
 </main>
 
 <footer class="site">
-  <p>Data: stats.nba.com via nba_api, updated weekly. Predictions were locked at git tag
-    <a href="https://github.com/allenb34/nba-standings-predictor/releases/tag/v1-lock">v1-lock</a> and are never edited.</p>
+  <p>Data: stats.nba.com via nba_api, updated weekly. Official predictions are locked at git tag
+    <a href="https://github.com/allenb34/nba-standings-predictor/tree/v1.1-lock">v1.1-lock</a>; the superseded original is at
+    <a href="https://github.com/allenb34/nba-standings-predictor/tree/v1-lock">v1-lock</a>. Neither is ever edited.</p>
 </footer>
 
 <script>
@@ -100,7 +102,7 @@ function table(conf, c, started) {
       <td>${x.wins}–${x.losses}</td>
       <td>${f1(x.pace_wins)}</td>
       <td>${f1(x.predicted_wins)}</td>
-      <td>${f1(x.v2_wins)}</td>
+      <td>${f1(x.v1_wins)}</td>
       <td>${f1(x.pi80_low)} to ${f1(x.pi80_high)}</td>
       <td>${diffCell(x.diff)}</td>
       <td>${piCell(x.in_pi)}</td>
@@ -110,7 +112,7 @@ function table(conf, c, started) {
     <caption id="${id}">${conf} standings: actual record vs predicted wins${started ? ", in current standings order" : ", in predicted order"}</caption>
     <thead><tr>
       <th scope="col">Actual rank</th><th scope="col" class="l">Team</th><th scope="col">W–L</th>
-      <th scope="col">Pace wins</th><th scope="col">Predicted wins (official)</th><th scope="col">Coach-adjusted v2 (exploratory)</th><th scope="col">80% interval</th>
+      <th scope="col">Pace wins</th><th scope="col">Predicted wins (official v1.1)</th><th scope="col">Original v1 (superseded)</th><th scope="col">80% interval</th>
       <th scope="col">Pace vs predicted</th><th scope="col">Inside interval?</th><th scope="col">Predicted rank</th>
     </tr></thead><tbody>${body}</tbody></table></div>`;
 }
@@ -119,15 +121,15 @@ fetch("data.json", {cache: "no-cache"}).then(r => { if (!r.ok) throw new Error(r
   const started = d.games_played > 0;
   const E = d.conferences.East.spearman, W = d.conferences.West.spearman;
   document.getElementById("status").textContent = started
-    ? `As of ${d.updated_utc}, ${d.games_played} games have been played. The locked predictions are off by ${d.mae.toFixed(1)} wins per team on average (MAE), measured against each team's current pace.`
+    ? `As of ${d.updated_utc}, ${d.games_played} games have been played. The official predictions are off by ${d.mae.toFixed(1)} wins per team on average (MAE), measured against each team's current pace.`
     : `As of ${d.updated_utc}, the ${d.season} season hasn't started. Stats appear after opening night (Oct 20, 2026).`;
   const stat = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
   const st = document.getElementById("stats");
   st.innerHTML = stat("Games played", d.games_played) + stat("Running MAE (wins)", d.mae == null ? "—" : d.mae.toFixed(2)) +
     stat("Inside 80% interval", d.pi80_coverage == null ? "—" : Math.round(d.pi80_coverage * 100) + "% of teams") +
     stat("Spearman ρ, East", E == null ? "—" : E.toFixed(2)) + stat("Spearman ρ, West", W == null ? "—" : W.toFixed(2)) +
-    stat("v2 coach-adjusted MAE", d.mae_v2 == null ? "—" : d.mae_v2.toFixed(2)) +
-    stat("v2 Spearman ρ, East / West", [d.conferences.East.spearman_v2, d.conferences.West.spearman_v2].map(v => v == null ? "—" : v.toFixed(2)).join(" / "));
+    stat("Original v1 MAE", d.mae_v1 == null ? "—" : d.mae_v1.toFixed(2)) +
+    stat("Original v1 Spearman ρ, East / West", [d.conferences.East.spearman_v1, d.conferences.West.spearman_v1].map(v => v == null ? "—" : v.toFixed(2)).join(" / "));
   st.hidden = false;
   document.getElementById("conferences").innerHTML = ["East", "West"].map(conf => {
     const c = d.conferences[conf];

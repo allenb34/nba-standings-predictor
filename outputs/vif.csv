@@ -1,8 +1,8 @@
 model,feature,vif
-hybrid,net_rtg_prev,4.164005506492384
-hybrid,roster_bpm,4.474433444313866
-hybrid,continuity,1.1140294189002844
-hybrid,roster_age,1.5203603091893074
-team_only,net_rtg_prev,1.5151302900866173
-team_only,continuity,1.0805453434378387
-team_only,roster_age,1.4236483256509749
+hybrid,net_rtg_prev,2.9252543771700275
+hybrid,roster_bpm,3.5483812690476766
+hybrid,continuity,1.1086446334671827
+hybrid,roster_age,1.6454500500788936
+team_only,net_rtg_prev,1.4170345143971868
+team_only,continuity,1.097967301333645
+team_only,roster_age,1.3306182915725646
