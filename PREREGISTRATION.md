@@ -1,8 +1,8 @@
 # Pre-registration: NBA 2026-27 regular-season wins
 
-> **PROVISIONAL.** Committed Mon Oct 19, 2026. These are the model's predictions, but the roster mapping is still under
-> manual review. The final lock commit (tag `v1-lock`, before Tue Oct 20, 2026 12:00 PM PT) removes this notice and
-> either confirms these numbers or replaces them.
+> **LOCKED: tag `v1-lock`, Mon Oct 19, 2026, before opening tip (Tue Oct 20, 2026 12:00 PM PT).**
+> The predictions were first pushed as provisional in commit `eb847e9` while the roster mapping was reviewed by hand.
+> The review found no changes, so `outputs/predictions_2026_27.csv` is byte-identical to `eb847e9`.
 
 **No 2026-27 game results were used.** All model inputs come from seasons through 2025-26, plus the 2026-27 rosters
 as listed by stats.nba.com before opening night.
