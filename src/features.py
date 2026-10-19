@@ -68,17 +68,29 @@ def load_teams() -> pd.DataFrame:
     return df[["season_end", "team", "GP", "W", "W_PCT", "NET_RATING"]]
 
 
+# v1 defaults. v1.1 variants (src/weight_variants.py) switch these:
+#   weight="healthy": role = max(t-1, t-2 minutes); a t-2-only player keeps his full t-2 minutes (no 500 cap)
+#   bpm="blend2":     minutes-weighted average of t-1 and t-2 BPM
+#   top_k=10:         roster BPM and age use only the 10 heaviest-weighted players
+VARIANT = {"weight": "t1", "bpm": "t1", "top_k": None}
+
+
 def player_inputs(ids: pd.Series, t: int, totals: pd.DataFrame) -> pd.DataFrame:
     """Weight (minutes) and BPM per player for target season t, using the t-1 / t-2 / replacement rule."""
     by = totals.set_index(["season_end", "player_id"])
     out = []
     for pid in ids:
+        r2 = by.loc[(t - 2, pid)] if (t - 2, pid) in by.index else None
         if (t - 1, pid) in by.index:
             r = by.loc[(t - 1, pid)]
             w, bpm, src = r["mp"], r["bpm"], "t-1"
-        elif (t - 2, pid) in by.index:
-            r = by.loc[(t - 2, pid)]
-            w, bpm, src = min(r["mp"], CAP_MINUTES), r["bpm"], "t-2"
+            if r2 is not None and VARIANT["weight"] == "healthy":
+                w = max(w, r2["mp"])
+            if r2 is not None and VARIANT["bpm"] == "blend2" and pd.notna(bpm) and pd.notna(r2["bpm"]):
+                bpm = (r["mp"] * bpm + r2["mp"] * r2["bpm"]) / (r["mp"] + r2["mp"])
+        elif r2 is not None:
+            w = r2["mp"] if VARIANT["weight"] == "healthy" else min(r2["mp"], CAP_MINUTES)
+            bpm, src = r2["bpm"], "t-2"
         else:
             w, bpm, src = CAP_MINUTES, REPLACEMENT_BPM, "replacement"
         if pd.isna(bpm):  # BBRef leaves BPM blank for tiny-minute players
@@ -91,6 +103,8 @@ def team_features(roster: pd.DataFrame, t: int, totals: pd.DataFrame, per_team: 
     """roster: one team's players for season t, columns player_id, team, age_t."""
     team = roster["team"].iloc[0]
     p = player_inputs(roster["player_id"], t, totals).merge(roster[["player_id", "age_t"]], on="player_id")
+    if VARIANT["top_k"]:
+        p = p.nlargest(VARIANT["top_k"], "w")
     prev = per_team[(per_team["season_end"] == t - 1) & (per_team["team"] == team)]
     return {
         "roster_bpm": np.average(p["bpm"], weights=p["w"]),
@@ -169,13 +183,8 @@ def spot_checks(ros: pd.DataFrame, totals: pd.DataFrame) -> None:
     print(changes[["PLAYER", "team_2025_26", "team", "mp_2025_26", "bpm_2025_26"]].to_string(index=False))
 
 
-def main():
-    totals, per_team = load_players()
-    teams = load_teams()
-
+def build_features(totals, per_team, teams, ros) -> pd.DataFrame:
     hist = historical_rows(totals, per_team, teams)
-    ros = map_2026_27_roster(totals)
-    spot_checks(ros, totals)
     pred = pd.DataFrame([{"season_end": PREDICT_SEASON, "team": team,
                           **team_features(r, PREDICT_SEASON, totals, per_team)}
                          for team, r in ros.groupby("team")])
@@ -193,10 +202,21 @@ def main():
     assert not train[feats + ["win_pct"]].isna().any().any(), train[train[feats + ["win_pct"]].isna().any(axis=1)]
     assert not future[feats].isna().any().any()
     assert (future["conf"].value_counts() == 15).all()
+    return df
+
+
+def main():
+    totals, per_team = load_players()
+    teams = load_teams()
+    ros = map_2026_27_roster(totals)
+    spot_checks(ros, totals)
+    df = build_features(totals, per_team, teams, ros)
+    train = df[df["season_end"] < PREDICT_SEASON]
+    feats = ["net_rtg_prev", "roster_bpm", "continuity", "roster_age", "win_pct_prev"]
 
     PROCESSED.mkdir(parents=True, exist_ok=True)
     df.to_csv(PROCESSED / "features.csv", index=False)
-    print(f"\nwrote features.csv: {len(train)} train rows, {len(future)} 2026-27 rows")
+    print(f"\nwrote features.csv: {len(train)} train rows, {(df["season_end"] == PREDICT_SEASON).sum()} 2026-27 rows")
     print(train[feats + ["win_pct"]].describe().round(3).to_string())
 
 
