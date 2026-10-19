@@ -1,0 +1,9 @@
+variant,is_v1,mae,spearman_east,spearman_west,spearman_min
+weight=healthy|bpm=blend2|top_k=10,False,6.811,0.7205,0.6766,0.3519
+weight=healthy|bpm=blend2|top_k=None,False,6.8438,0.7139,0.6908,0.3417
+weight=t1|bpm=t1|top_k=None,True,6.8847,0.7256,0.7095,0.356
+weight=healthy|bpm=t1|top_k=None,False,6.9001,0.705,0.6933,0.3806
+weight=t1|bpm=blend2|top_k=None,False,6.9152,0.703,0.6909,0.3524
+weight=t1|bpm=t1|top_k=10,False,6.9322,0.7114,0.6702,0.3663
+weight=healthy|bpm=t1|top_k=10,False,6.9457,0.7117,0.6803,0.3752
+weight=t1|bpm=blend2|top_k=10,False,6.9663,0.6967,0.6663,0.322

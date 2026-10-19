@@ -1,0 +1,7 @@
+{
+  "rule": "lowest-MAE non-v1 variant, adopted only if MAE <= 6.885 - 0.05",
+  "best_variant": "weight=healthy|bpm=blend2|top_k=10",
+  "best_mae": 6.811,
+  "v1_mae": 6.885,
+  "adopted": true
+}
