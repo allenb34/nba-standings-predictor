@@ -23,7 +23,7 @@ BBREF_TO_NBA = {"BRK": "BKN", "NJN": "BKN", "CHO": "CHA", "CHA": "CHA", "PHO": "
 EAST = {"ATL", "BOS", "BKN", "CHA", "CHI", "CLE", "DET", "IND", "MIA", "MIL", "NYK", "ORL", "PHI", "TOR", "WAS"}
 
 # nba_api name -> BBRef slug, filled in by hand for veterans the name normalizer can't match.
-MANUAL_IDS: dict[str, str] = {}
+MANUAL_IDS: dict[str, str] = {"Ronald Holland II": "hollaro01"}  # BBRef: "Ron Holland"
 
 
 def norm_name(s: str) -> str:
