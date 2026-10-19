@@ -3,6 +3,8 @@
 Pre-registered regular-season win predictions for all 30 NBA teams, committed before opening tip on Oct 20, 2026.
 The commit timestamp (and tag `v1-lock`) is the proof.
 
+**Live dashboard (predicted vs actual, updated weekly):** https://allenb34.github.io/nba-standings-predictor/
+
 - Predictions: [`outputs/predictions_2026_27.csv`](outputs/predictions_2026_27.csv)
 - Model spec, decision rule, CV results, limitations: [`PREREGISTRATION.md`](PREREGISTRATION.md)
 

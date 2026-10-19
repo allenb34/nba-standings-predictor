@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Accessibility statement: NBA 2026-27 Standings Predictor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site">
+  <div class="inner">
+    <h1>Accessibility statement</h1>
+    <p>NBA 2026-27 Standings Predictor dashboard</p>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="index.html">Back to the dashboard</a></li>
+        <li><a href="https://github.com/allenb34/nba-standings-predictor">Source code on GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="card" aria-labelledby="goal-h">
+    <h2 id="goal-h">Conformance target</h2>
+    <p>This site aims to conform to the <a href="https://www.w3.org/TR/WCAG22/">Web Content Accessibility Guidelines (WCAG) 2.2</a>
+      at Level AA. It is <strong>partially conformant</strong>: most of the content meets the standard, with the known
+      limitations listed below.</p>
+    <p>The site uses no accessibility overlay or plug-in. Accessibility is built into the HTML and CSS.</p>
+  </section>
+
+  <section class="card" aria-labelledby="how-h">
+    <h2 id="how-h">What we did</h2>
+    <ul>
+      <li>Semantic landmarks (header, navigation, main, footer) and a skip link to the main content.</li>
+      <li>Standings are real HTML tables with captions and row and column headers.</li>
+      <li>Every chart has a written summary and a data table holding the same values.</li>
+      <li>Color is never the only signal: teams ahead of or behind their prediction are marked with ▲/▼ and the words
+        "ahead" or "behind", and chart markers differ by shape (diamond, circle, bar) as well as color.</li>
+      <li>Text contrast is at least 4.5:1 and chart graphics at least 3:1, in both light and dark color schemes.</li>
+      <li>Everything works with a keyboard, with a visible focus outline. Nothing relies on hover.</li>
+      <li>The layout reflows at 320 CSS pixels wide and at 200% zoom. Wide tables scroll sideways inside their own
+        box, which is keyboard-focusable.</li>
+      <li>The site has no animation, and the reduced-motion preference is respected if any is added later.</li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="test-h">
+    <h2 id="test-h">How it was tested</h2>
+    <ul>
+      <li>Automated check with axe-core 4.10 on both pages: no violations.</li>
+      <li>Manual keyboard-only pass through every link and scrollable table.</li>
+      <li>Visual checks in light and dark mode, at 320 pixels wide, and at 640 pixels wide (the same layout as 200% zoom on a 1280-pixel screen).</li>
+    </ul>
+    <p>It has <strong>not</strong> been tested with screen reader users or by an independent auditor.</p>
+  </section>
+
+  <section class="card" aria-labelledby="limits-h">
+    <h2 id="limits-h">Known limitations</h2>
+    <ul>
+      <li>The chart is hidden from screen readers, because the summary and table right next to it hold the same
+        information in a more usable form.</li>
+      <li>On narrow screens the standings tables need sideways scrolling; that's the only way to keep nine columns
+        of numbers lined up with their headers.</li>
+      <li>The dashboard needs JavaScript to draw the tables and chart from the weekly data file. Without
+        JavaScript, only the explanatory text appears.</li>
+      <li>Linked GitHub pages are outside this site's control.</li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="contact-h">
+    <h2 id="contact-h">Report a problem</h2>
+    <p>If something on this site doesn't work for you, please tell us by
+      <a href="https://github.com/allenb34/nba-standings-predictor/issues/new">opening an issue on GitHub</a>.
+      Please include the page and what went wrong. We aim to reply within 5 business days.</p>
+  </section>
+
+  <p class="note">Last reviewed: <time datetime="2026-10-19">October 19, 2026</time>.</p>
+</main>
+
+<footer class="site">
+  <p>NBA 2026-27 Standings Predictor.</p>
+</footer>
+</body>
+</html>

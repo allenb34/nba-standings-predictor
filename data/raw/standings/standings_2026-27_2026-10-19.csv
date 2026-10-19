@@ -1,0 +1,31 @@
+TeamID,TeamCity,TeamName,Conference,PlayoffRank,WINS,LOSSES
+1610612737,Atlanta,Hawks,East,1,0,0
+1610612742,Dallas,Mavericks,West,1,0,0
+1610612743,Denver,Nuggets,West,2,0,0
+1610612738,Boston,Celtics,East,2,0,0
+1610612744,Golden State,Warriors,West,3,0,0
+1610612741,Chicago,Bulls,East,3,0,0
+1610612751,Brooklyn,Nets,East,4,0,0
+1610612745,Houston,Rockets,West,4,0,0
+1610612747,Los Angeles,Lakers,West,5,0,0
+1610612766,Charlotte,Hornets,East,5,0,0
+1610612746,LA,Clippers,West,6,0,0
+1610612739,Cleveland,Cavaliers,East,6,0,0
+1610612765,Detroit,Pistons,East,7,0,0
+1610612763,Memphis,Grizzlies,West,7,0,0
+1610612750,Minnesota,Timberwolves,West,8,0,0
+1610612754,Indiana,Pacers,East,8,0,0
+1610612748,Miami,Heat,East,9,0,0
+1610612740,New Orleans,Pelicans,West,9,0,0
+1610612749,Milwaukee,Bucks,East,10,0,0
+1610612760,Oklahoma City,Thunder,West,10,0,0
+1610612756,Phoenix,Suns,West,11,0,0
+1610612752,New York,Knicks,East,11,0,0
+1610612753,Orlando,Magic,East,12,0,0
+1610612757,Portland,Trail Blazers,West,12,0,0
+1610612758,Sacramento,Kings,West,13,0,0
+1610612755,Philadelphia,76ers,East,13,0,0
+1610612759,San Antonio,Spurs,West,14,0,0
+1610612761,Toronto,Raptors,East,14,0,0
+1610612762,Utah,Jazz,West,15,0,0
+1610612764,Washington,Wizards,East,15,0,0

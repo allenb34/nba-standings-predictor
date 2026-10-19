@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>NBA 2026-27 Standings Predictor: predicted vs actual</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site">
+  <div class="inner">
+    <h1>NBA 2026-27: predicted vs actual wins</h1>
+    <p>Pre-registered win predictions, locked before opening night, tracked against the real standings.</p>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="https://github.com/allenb34/nba-standings-predictor/blob/main/PREREGISTRATION.md">Pre-registration and method</a></li>
+        <li><a href="https://github.com/allenb34/nba-standings-predictor">Source code on GitHub</a></li>
+        <li><a href="accessibility.html">Accessibility statement</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="card" aria-labelledby="summary-h">
+    <h2 id="summary-h">How the predictions are doing</h2>
+    <p id="status">Loading the latest standings…</p>
+    <dl class="stats" id="stats" hidden></dl>
+    <p class="note">
+      <strong>Pace wins</strong> = current win% × 82. <strong>MAE</strong> = mean absolute gap between predicted and
+      pace wins, across all 30 teams. <strong>Spearman ρ</strong> compares the predicted order with the actual order
+      inside each conference (1 = identical, 0 = unrelated). Early in the season pace wins swing a lot, so treat these
+      numbers as noisy until roughly 20 games in.
+    </p>
+  </section>
+  <div id="conferences"></div>
+</main>
+
+<footer class="site">
+  <p>Data: stats.nba.com via nba_api, updated weekly. Predictions were locked at git tag
+    <a href="https://github.com/allenb34/nba-standings-predictor/releases/tag/v1-lock">v1-lock</a> and are never edited.</p>
+</footer>
+
+<script>
+const f1 = x => x == null ? "—" : x.toFixed(1);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const pct = x => (x / 82 * 100).toFixed(2) + "%";
+
+function diffCell(d) {
+  if (d == null) return "—";
+  if (Math.abs(d) < 0.05) return "0.0 (on pace)";
+  return d > 0 ? `<span class="ahead">▲ +${f1(d)} ahead</span>` : `<span class="behind">▼ −${f1(-d)} behind</span>`;
+}
+function piCell(v) { return v == null ? "—" : v ? "✓ Yes" : "✗ No"; }
+
+function summary(conf, c, started) {
+  const t = c.teams;
+  if (!started) {
+    const top = t.slice(0, 3).map(x => `${x.name} (${f1(x.predicted_wins)})`).join(", ");
+    return `No games played yet. The model's top three in the ${conf} are ${top}.`;
+  }
+  const s = [...t].sort((a, b) => b.diff - a.diff), up = s[0], down = s[s.length - 1];
+  const inPi = t.filter(x => x.in_pi).length;
+  const rho = c.spearman == null ? "not yet defined" : c.spearman.toFixed(2);
+  return `${inPi} of ${t.length} ${conf} teams are on pace to land inside their 80% prediction interval. ` +
+    `Furthest ahead of prediction: ${up.name}, on pace for ${f1(up.pace_wins)} wins vs ${f1(up.predicted_wins)} predicted. ` +
+    `Furthest behind: ${down.name}, on pace for ${f1(down.pace_wins)} vs ${f1(down.predicted_wins)}. ` +
+    `Rank agreement (Spearman ρ): ${rho}.`;
+}
+
+function chart(c, started) {
+  const rows = c.teams.map(x => `
+    <div class="row"><span class="lbl">${esc(x.team)}</span><span class="track">
+      <span class="band" style="left:${pct(x.pi80_low)};width:${pct(x.pi80_high - x.pi80_low)}"></span>
+      <span class="mk pred" style="left:${pct(x.predicted_wins)}"></span>
+      ${x.pace_wins == null ? "" : `<span class="mk pace" style="left:${pct(x.pace_wins)}"></span>`}
+    </span></div>`).join("");
+  const ticks = [0, 20, 41, 60, 82].map(v => `<span style="left:${pct(v)}">${v}</span>`).join("");
+  return `
+    <ul class="legend" aria-hidden="true">
+      <li><span class="mk pred"></span> Predicted wins (diamond)</li>
+      ${started ? '<li><span class="mk pace"></span> Pace wins (circle)</li>' : ""}
+      <li><span class="band"></span> 80% prediction interval (bar)</li>
+    </ul>
+    <div aria-hidden="true">${rows}<div class="axis"><span></span><span class="ticks">${ticks}</span></div></div>`;
+}
+
+function table(conf, c, started) {
+  const body = c.teams.map(x => `<tr>
+      <td>${x.actual_rank ?? "—"}</td>
+      <th scope="row">${esc(x.name)}</th>
+      <td>${x.wins}–${x.losses}</td>
+      <td>${f1(x.pace_wins)}</td>
+      <td>${f1(x.predicted_wins)}</td>
+      <td>${f1(x.pi80_low)} to ${f1(x.pi80_high)}</td>
+      <td>${diffCell(x.diff)}</td>
+      <td>${piCell(x.in_pi)}</td>
+      <td>${x.predicted_rank}</td></tr>`).join("");
+  const id = `cap-${conf}`;
+  return `<div class="table-wrap" role="region" aria-labelledby="${id}" tabindex="0"><table>
+    <caption id="${id}">${conf} standings: actual record vs predicted wins${started ? ", in current standings order" : ", in predicted order"}</caption>
+    <thead><tr>
+      <th scope="col">Actual rank</th><th scope="col" class="l">Team</th><th scope="col">W–L</th>
+      <th scope="col">Pace wins</th><th scope="col">Predicted wins</th><th scope="col">80% interval</th>
+      <th scope="col">Pace vs predicted</th><th scope="col">Inside interval?</th><th scope="col">Predicted rank</th>
+    </tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+fetch("data.json", {cache: "no-cache"}).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
+  const started = d.games_played > 0;
+  const E = d.conferences.East.spearman, W = d.conferences.West.spearman;
+  document.getElementById("status").textContent = started
+    ? `As of ${d.updated_utc}, ${d.games_played} games have been played. The locked predictions are off by ${d.mae.toFixed(1)} wins per team on average (MAE), measured against each team's current pace.`
+    : `As of ${d.updated_utc}, the ${d.season} season hasn't started. Stats appear after opening night (Oct 20, 2026).`;
+  const stat = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+  const st = document.getElementById("stats");
+  st.innerHTML = stat("Games played", d.games_played) + stat("Running MAE (wins)", d.mae == null ? "—" : d.mae.toFixed(2)) +
+    stat("Inside 80% interval", d.pi80_coverage == null ? "—" : Math.round(d.pi80_coverage * 100) + "% of teams") +
+    stat("Spearman ρ, East", E == null ? "—" : E.toFixed(2)) + stat("Spearman ρ, West", W == null ? "—" : W.toFixed(2));
+  st.hidden = false;
+  document.getElementById("conferences").innerHTML = ["East", "West"].map(conf => {
+    const c = d.conferences[conf];
+    return `<section class="card" aria-labelledby="h-${conf}">
+      <h2 id="h-${conf}">${conf}ern Conference</h2>
+      <h3 id="chart-${conf}">Chart: predicted vs pace wins</h3>
+      <figure class="chart" aria-labelledby="chart-${conf}" aria-describedby="sum-${conf}" style="margin:0">
+        <figcaption id="sum-${conf}">${esc(summary(conf, c, started))} The table below lists every value shown in the chart.</figcaption>
+        ${chart(c, started)}
+      </figure>
+      ${table(conf, c, started)}
+    </section>`;
+  }).join("");
+}).catch(e => {
+  document.getElementById("status").textContent = `Couldn't load data.json (${e.message}). If you opened this file directly, serve the docs folder over HTTP instead.`;
+});
+</script>
+</body>
+</html>
