@@ -1,0 +1,48 @@
+{
+  "full_sample_lambda": 10000.0,
+  "cv": {
+    "v1": {
+      "mae": 6.8847,
+      "spearman_east": 0.7256,
+      "spearman_west": 0.7095,
+      "spearman_min": 0.356,
+      "seasons_beating_v1": NaN
+    },
+    "v1_coach": {
+      "mae": 6.8911,
+      "spearman_east": 0.7234,
+      "spearman_west": 0.708,
+      "spearman_min": 0.356,
+      "seasons_beating_v1": 7.0
+    },
+    "v1_coach_no_midseason": {
+      "mae": 6.893,
+      "spearman_east": 0.7244,
+      "spearman_west": 0.708,
+      "spearman_min": 0.356,
+      "seasons_beating_v1": 8.0
+    }
+  },
+  "lambda_by_fold": {
+    "v1_coach": {
+      "count": 15.0,
+      "mean": 9338.333,
+      "std": 2562.627,
+      "min": 74.989,
+      "25%": 10000.0,
+      "50%": 10000.0,
+      "75%": 10000.0,
+      "max": 10000.0
+    },
+    "v1_coach_no_midseason": {
+      "count": 15.0,
+      "mean": 9337.082,
+      "std": 2567.469,
+      "min": 56.234,
+      "25%": 10000.0,
+      "50%": 10000.0,
+      "75%": 10000.0,
+      "max": 10000.0
+    }
+  }
+}
