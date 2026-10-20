@@ -1,12 +1,13 @@
 {
  "season": "2026-27",
- "updated_utc": "2026-10-20 04:31 UTC",
+ "updated_utc": "2026-10-20 04:40 UTC",
  "games_played": 0,
  "teams_with_games": 0,
  "mae": null,
  "mae_v1": null,
  "reasons_base_wins": 39.0,
  "pi80_coverage": null,
+ "pi80_coverage_v1": null,
  "conferences": {
   "East": {
    "spearman": null,

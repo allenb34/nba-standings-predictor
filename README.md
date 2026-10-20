@@ -30,10 +30,10 @@ biggest factors and the biggest one pulling the other way for every team, in
 add back up to the locked projection. These are explanations only; no prediction changed.
 
 ## Post-lock: are the 80% intervals right?
-Every interval is about ±11 wins because OLS assumes the same noise for every team, and that noise (about 8.5 wins)
+Every interval is about ±11 wins because OLS assumes the same noise for every team, and that noise (about 8.7 wins)
 dominates. A pre-registered check ([`src/interval_check.py`](src/interval_check.py), rule committed before running) found
 the locked intervals **covered 81.1%** of held-out team-seasons, against a target of 80%. Team-specific widths, based on
-continuity, distance from .500 and the number of rookies, did not beat them out of sample: better in only 6 of 15 seasons.
+continuity, distance from .500 and the number of no-history players in the 10-man rotation, did not beat them out of sample: better in only 6 of 15 seasons.
 **The locked intervals stand.** The one known weakness is at the top: there the interval is about the right width, but it's
 centered about 3.5 wins too high (see the note above). Results are in [`outputs/intervals/`](outputs/intervals/).
 

@@ -61,6 +61,7 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
     df["pace_wins"] = (df["WINS"] / df["gp"] * GAMES).where(played)
     df["diff"] = df["pace_wins"] - df["predicted_wins"]
     df["in_pi"] = ((df["pace_wins"] >= df["pi80_low"]) & (df["pace_wins"] <= df["pi80_high"])).where(played)
+    df["in_pi_v1"] = ((df["pace_wins"] >= df["v1_lo"]) & (df["pace_wins"] <= df["v1_hi"])).where(played)
 
     conferences = {}
     for conf, g in df.groupby("conference"):
@@ -93,13 +94,14 @@ def build(pred: pd.DataFrame, st: pd.DataFrame) -> dict:
         "mae_v1": r((p["pace_wins"] - p["v1_wins"]).abs().mean() if len(p) else None, 2),
         "reasons_base_wins": REASONS_BASE,
         "pi80_coverage": r(p["in_pi"].astype(bool).mean() if len(p) else None, 3),
+        "pi80_coverage_v1": r(p["in_pi_v1"].astype(bool).mean() if len(p) else None, 3),
         "conferences": conferences,
     }
 
 
 def main():
     day = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else date.today()  # optional: replay a cached day
-    pred = pd.read_csv(PRED).merge(pd.read_csv(V1).rename(columns={"predicted_wins": "v1_wins"})[["team", "v1_wins"]], on="team", how="left", validate="1:1")
+    pred = pd.read_csv(PRED).merge(pd.read_csv(V1).rename(columns={"predicted_wins": "v1_wins", "pi80_low": "v1_lo", "pi80_high": "v1_hi"})[["team", "v1_wins", "v1_lo", "v1_hi"]], on="team", how="left", validate="1:1")
     assert pred["v1_wins"].notna().all() and abs(pred["v1_wins"].sum() - 1230) < 1e-6
     data = build(pred, standings(day))
     OUT.write_text(json.dumps(data, indent=1), encoding="utf-8")

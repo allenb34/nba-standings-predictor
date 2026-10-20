@@ -44,7 +44,7 @@
     <p class="note">
       <strong>Reading the very top projections.</strong> In past-season testing, the model's projections above 60 wins came
       in about 3.5 wins too high on average, and 6 of 7 such teams finished below their projection. Below 60 wins, it has been
-      accurate to within about half a win on average. So Oklahoma City's 69.7 is best read as a mid-60s team with upside.
+      unbiased: on average, teams finished within about half a win of their projection, though an individual team typically misses by about 7 wins. So Oklahoma City's 69.7 is best read as a mid-60s team with upside.
       This note was added after the lock; the locked predictions are unchanged.
     </p>
   </section>
@@ -148,6 +148,7 @@ fetch("data.json", {cache: "no-cache"}).then(r => { if (!r.ok) throw new Error(r
     stat("Inside 80% interval", d.pi80_coverage == null ? "—" : Math.round(d.pi80_coverage * 100) + "% of teams") +
     stat("Spearman ρ, East", E == null ? "—" : E.toFixed(2)) + stat("Spearman ρ, West", W == null ? "—" : W.toFixed(2)) +
     stat("Original v1 MAE", d.mae_v1 == null ? "—" : d.mae_v1.toFixed(2)) +
+    stat("Original v1 inside its 80% interval", d.pi80_coverage_v1 == null ? "—" : Math.round(d.pi80_coverage_v1 * 100) + "% of teams") +
     stat("Original v1 Spearman ρ, East / West", [d.conferences.East.spearman_v1, d.conferences.West.spearman_v1].map(v => v == null ? "—" : v.toFixed(2)).join(" / "));
   st.hidden = false;
   document.getElementById("conferences").innerHTML = ["East", "West"].map(conf => {

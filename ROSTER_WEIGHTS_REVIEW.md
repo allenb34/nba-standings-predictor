@@ -1,5 +1,8 @@
 # Post-lock review: how player roles are weighted (v1.1 candidate)
 
+> **Outcome (added Oct 19, 2026):** this candidate was adopted as the official prediction and locked as tag
+> `v1.1-lock` before tip-off, at the author's request. See the disclosure in [`PREREGISTRATION.md`](PREREGISTRATION.md).
+
 **Branch `v1.1-roster-weights`. Prompted on Oct 19, 2026, after the lock, by questioning WAS (21.0), IND (32.8) and PHI (43.3).**
 The locked v1 predictions (tag `v1-lock`) were not modified.
 
