@@ -1,5 +1,9 @@
 # Post-lock exploratory analysis: does a head-coach effect help?
 
+> **Status update (added Oct 19, 2026):** this analysis was run against v1. Before tip-off, v1 was superseded by
+> **`v1.1-lock`** (revised role weighting), which is now the official prediction; see `PREREGISTRATION.md` on `main`.
+> The coach result (no usable effect) was not re-run on v1.1.
+
 **Branch `v2-coach-effects`. Exploratory only.** The locked v1 predictions (tag `v1-lock`,
 `outputs/predictions_2026_27.csv`) remain the official scored predictions all season. Nothing in v1 was modified.
 
