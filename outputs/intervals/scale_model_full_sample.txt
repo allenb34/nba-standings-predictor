@@ -1,0 +1,27 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  resid   R-squared:                       0.020
+Model:                            OLS   Adj. R-squared:                  0.013
+Method:                 Least Squares   F-statistic:                     3.038
+Date:                Mon, 19 Oct 2026   Prob (F-statistic):             0.0289
+Time:                        21:29:22   Log-Likelihood:                -1388.2
+No. Observations:                 450   AIC:                             2784.
+Df Residuals:                     446   BIC:                             2801.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const             9.5006      1.166      8.149      0.000       7.209      11.792
+continuity       -2.9430      1.682     -1.749      0.081      -6.249       0.363
+dist41           -0.1099      0.047     -2.338      0.020      -0.202      -0.018
+n_replacement     0.0448      0.820      0.055      0.956      -1.566       1.656
+==============================================================================
+Omnibus:                       68.014   Durbin-Watson:                   1.955
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               95.460
+Skew:                           1.063   Prob(JB):                     1.87e-21
+Kurtosis:                       3.754   Cond. No.                         71.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

@@ -102,6 +102,10 @@ th[scope="row"], td.l, th.l { text-align: left; }
 th[scope="row"] { color: var(--text); font-size: 0.9rem; font-weight: 600; }
 .ahead { color: var(--ahead); font-weight: 600; }
 .behind { color: var(--behind); font-weight: 600; }
+.why details { border-bottom: 1px solid var(--border); padding: 0.45rem 0; }
+.why summary { cursor: pointer; font-weight: 600; }
+.why ul { margin: 0.4rem 0 0.2rem; padding-left: 1.25rem; }
+.why li { margin: 0.2rem 0; }
 footer.site { padding: 1rem; font-size: 0.875rem; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

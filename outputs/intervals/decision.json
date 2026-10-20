@@ -1,0 +1,27 @@
+{
+  "winner": "A",
+  "qualifying": [],
+  "summary": {
+    "A": {
+      "coverage": 0.8111,
+      "mean_width": 22.4297,
+      "width_sd": 0.0814,
+      "interval_score": 31.1511,
+      "seasons_better_than_A": NaN
+    },
+    "B": {
+      "coverage": 0.8067,
+      "mean_width": 21.8563,
+      "width_sd": 0.0,
+      "interval_score": 31.0878,
+      "seasons_better_than_A": 7.0
+    },
+    "C": {
+      "coverage": 0.7933,
+      "mean_width": 22.106,
+      "width_sd": 2.4374,
+      "interval_score": 31.3068,
+      "seasons_better_than_A": 6.0
+    }
+  }
+}

@@ -22,6 +22,21 @@ calibrated up to about 60 wins: in every bin below 60, the average actual result
 Its **60+ win projections have run about 3.5 wins high**, and 6 of those 7 teams finished below their projection.
 So OKC's **69.7** is best read as a **mid-60s team with upside**, not a 70-win forecast.
 
+## Post-lock: why each team is projected where it is
+Each projection splits exactly into contributions relative to a team with league-average inputs (39.0 wins this
+season): one per rotation player, plus net rating, continuity and age. [`src/explain.py`](src/explain.py) lists the two
+biggest factors and the biggest one pulling the other way for every team, in
+[`outputs/explanations_2026_27.csv`](outputs/explanations_2026_27.csv) and on the dashboard. It asserts that the parts
+add back up to the locked projection. These are explanations only; no prediction changed.
+
+## Post-lock: are the 80% intervals right?
+Every interval is about ±11 wins because OLS assumes the same noise for every team, and that noise (about 8.5 wins)
+dominates. A pre-registered check ([`src/interval_check.py`](src/interval_check.py), rule committed before running) found
+the locked intervals **covered 81.1%** of held-out team-seasons, against a target of 80%. Team-specific widths, based on
+continuity, distance from .500 and the number of rookies, did not beat them out of sample: better in only 6 of 15 seasons.
+**The locked intervals stand.** The one known weakness is at the top: there the interval is about the right width, but it's
+centered about 3.5 wins too high (see the note above). Results are in [`outputs/intervals/`](outputs/intervals/).
+
 ## Post-lock exploratory analysis (not official)
 - **Coach effects:** [`COACH_ANALYSIS.md`](https://github.com/allenb34/nba-standings-predictor/blob/v2-coach-effects/COACH_ANALYSIS.md)
   on branch [`v2-coach-effects`](https://github.com/allenb34/nba-standings-predictor/tree/v2-coach-effects).

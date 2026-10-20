@@ -1,10 +1,11 @@
 {
  "season": "2026-27",
- "updated_utc": "2026-10-19 22:46 UTC",
+ "updated_utc": "2026-10-20 04:31 UTC",
  "games_played": 0,
  "teams_with_games": 0,
  "mae": null,
  "mae_v1": null,
+ "reasons_base_wins": 39.0,
  "pi80_coverage": null,
  "conferences": {
   "East": {
@@ -24,7 +25,21 @@
      "pi80_high": 65.2,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Jayson Tatum: +5.1 BPM over the last two seasons, 14% of the rotation (role based on his larger 2024-25 workload; 522 min in 2025-26)",
+       "wins": 4.9
+      },
+      {
+       "text": "Derrick White: +3.3 BPM over the last two seasons, 14% of the rotation",
+       "wins": 3.1
+      },
+      {
+       "text": "Rotation average age 29.8 (average 27.5)",
+       "wins": -2.3
+      }
+     ]
     },
     {
      "team": "CLE",
@@ -39,7 +54,21 @@
      "pi80_high": 63.5,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "James Harden: +4.1 BPM over the last two seasons, 16% of the rotation",
+       "wins": 4.4
+      },
+      {
+       "text": "Donovan Mitchell: +4.4 BPM over the last two seasons, 13% of the rotation",
+       "wins": 4.0
+      },
+      {
+       "text": "Peyton Watson: -1.5 BPM over the last two seasons, 9% of the rotation",
+       "wins": -1.2
+      }
+     ]
     },
     {
      "team": "ORL",
@@ -54,7 +83,21 @@
      "pi80_high": 59.9,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "90% of last season's minutes return (average 66%)",
+       "wins": 3.2
+      },
+      {
+       "text": "Franz Wagner: +2.9 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1019 min in 2025-26)",
+       "wins": 1.9
+      },
+      {
+       "text": "Tristan da Silva: -1.5 BPM over the last two seasons, 10% of the rotation",
+       "wins": -1.3
+      }
+     ]
     },
     {
      "team": "TOR",
@@ -69,7 +112,21 @@
      "pi80_high": 59.5,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Kawhi Leonard: +6.2 BPM over the last two seasons, 12% of the rotation",
+       "wins": 5.2
+      },
+      {
+       "text": "Scottie Barnes: +3.4 BPM over the last two seasons, 16% of the rotation",
+       "wins": 3.5
+      },
+      {
+       "text": "Jamal Shead: -3.1 BPM over the last two seasons, 11% of the rotation",
+       "wins": -2.6
+      }
+     ]
     },
     {
      "team": "NYK",
@@ -84,7 +141,21 @@
      "pi80_high": 59.5,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "88% of last season's minutes return (average 66%)",
+       "wins": 2.9
+      },
+      {
+       "text": "Karl-Anthony Towns: +3.5 BPM over the last two seasons, 12% of the rotation",
+       "wins": 2.8
+      },
+      {
+       "text": "Rotation average age 30.1 (average 27.5)",
+       "wins": -2.6
+      }
+     ]
     },
     {
      "team": "DET",
@@ -99,7 +170,21 @@
      "pi80_high": 59.1,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Cade Cunningham: +5.0 BPM over the last two seasons, 13% of the rotation",
+       "wins": 4.5
+      },
+      {
+       "text": "Last season's net rating of +8.4 (league average 0.0)",
+       "wins": 3.1
+      },
+      {
+       "text": "Taurean Prince: -2.0 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 611 min in 2025-26)",
+       "wins": -1.9
+      }
+     ]
     },
     {
      "team": "PHI",
@@ -114,7 +199,21 @@
      "pi80_high": 52.9,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "LeBron James: +4.7 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1989 min in 2025-26)",
+       "wins": 3.8
+      },
+      {
+       "text": "Tyrese Maxey: +4.0 BPM over the last two seasons, 13% of the rotation",
+       "wins": 3.5
+      },
+      {
+       "text": "Kentavious Caldwell-Pope: -1.8 BPM over the last two seasons, 11% of the rotation (role based on his larger 2024-25 workload; 1088 min in 2025-26)",
+       "wins": -1.7
+      }
+     ]
     },
     {
      "team": "CHA",
@@ -129,7 +228,21 @@
      "pi80_high": 52.4,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Kon Knueppel: +2.8 BPM in 2025-26, 13% of the rotation",
+       "wins": 2.3
+      },
+      {
+       "text": "Dennis Schr\u00f6der: -2.2 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1697 min in 2025-26)",
+       "wins": -1.9
+      },
+      {
+       "text": "Sion James: -2.0 BPM in 2025-26, 9% of the rotation",
+       "wins": -1.5
+      }
+     ]
     },
     {
      "team": "IND",
@@ -144,7 +257,21 @@
      "pi80_high": 51.4,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Tyrese Haliburton: +5.8 BPM in 2024-25 (missed 2025-26), 13% of the rotation",
+       "wins": 5.0
+      },
+      {
+       "text": "Last season's net rating of -7.8 (league average 0.0)",
+       "wins": -2.9
+      },
+      {
+       "text": "Kelly Oubre Jr.: -1.9 BPM over the last two seasons, 11% of the rotation (role based on his larger 2024-25 workload; 1574 min in 2025-26)",
+       "wins": -1.7
+      }
+     ]
     },
     {
      "team": "MIA",
@@ -159,7 +286,21 @@
      "pi80_high": 49.1,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Giannis Antetokounmpo: +9.5 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1039 min in 2025-26)",
+       "wins": 8.0
+      },
+      {
+       "text": "Rotation average age 30.7 (average 27.5)",
+       "wins": -3.2
+      },
+      {
+       "text": "Bam Adebayo: +2.0 BPM over the last two seasons, 14% of the rotation",
+       "wins": 1.7
+      }
+     ]
     },
     {
      "team": "ATL",
@@ -174,7 +315,21 @@
      "pi80_high": 48.0,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Jalen Wilson: -4.4 BPM over the last two seasons, 9% of the rotation (role based on his larger 2024-25 workload; 859 min in 2025-26)",
+       "wins": -3.2
+      },
+      {
+       "text": "Jalen Johnson: +3.4 BPM over the last two seasons, 12% of the rotation",
+       "wins": 2.6
+      },
+      {
+       "text": "Dyson Daniels: +1.4 BPM over the last two seasons, 12% of the rotation",
+       "wins": 1.0
+      }
+     ]
     },
     {
      "team": "MIL",
@@ -189,7 +344,21 @@
      "pi80_high": 43.2,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Kyle Kuzma: -3.6 BPM over the last two seasons, 10% of the rotation",
+       "wins": -2.7
+      },
+      {
+       "text": "AJ Green: -2.8 BPM over the last two seasons, 11% of the rotation",
+       "wins": -2.5
+      },
+      {
+       "text": "Tyler Herro: +2.8 BPM over the last two seasons, 13% of the rotation (role based on his larger 2024-25 workload; 1033 min in 2025-26)",
+       "wins": 2.4
+      }
+     ]
     },
     {
      "team": "CHI",
@@ -204,7 +373,21 @@
      "pi80_high": 41.0,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Jordan Hawkins: -5.7 BPM over the last two seasons, 8% of the rotation (role based on his larger 2024-25 workload; 692 min in 2025-26)",
+       "wins": -3.2
+      },
+      {
+       "text": "Patrick Williams: -4.1 BPM over the last two seasons, 9% of the rotation",
+       "wins": -2.8
+      },
+      {
+       "text": "Josh Giddey: +2.9 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1731 min in 2025-26)",
+       "wins": 2.2
+      }
+     ]
     },
     {
      "team": "BKN",
@@ -219,7 +402,21 @@
      "pi80_high": 36.8,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Nolan Traore: -6.8 BPM in 2025-26, 7% of the rotation",
+       "wins": -3.8
+      },
+      {
+       "text": "Last season's net rating of -10.0 (league average 0.0)",
+       "wins": -3.7
+      },
+      {
+       "text": "Rotation average age 25.6 (average 27.5)",
+       "wins": 1.9
+      }
+     ]
     },
     {
      "team": "WAS",
@@ -234,7 +431,21 @@
      "pi80_high": 34.0,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Bub Carrington: -4.6 BPM over the last two seasons, 13% of the rotation",
+       "wins": -4.6
+      },
+      {
+       "text": "Last season's net rating of -11.8 (league average 0.0)",
+       "wins": -4.3
+      },
+      {
+       "text": "Anthony Davis: +4.6 BPM over the last two seasons, 9% of the rotation (role based on his larger 2024-25 workload; 626 min in 2025-26)",
+       "wins": 2.8
+      }
+     ]
     }
    ]
   },
@@ -255,7 +466,21 @@
      "pi80_high": 81.1,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Shai Gilgeous-Alexander: +11.6 BPM over the last two seasons, 16% of the rotation (role based on his larger 2024-25 workload; 2259 min in 2025-26)",
+       "wins": 12.8
+      },
+      {
+       "text": "Last season's net rating of +11.1 (league average 0.0)",
+       "wins": 4.1
+      },
+      {
+       "text": "Jared McCain: -1.5 BPM over the last two seasons, 7% of the rotation",
+       "wins": -0.9
+      }
+     ]
     },
     {
      "team": "SAS",
@@ -270,7 +495,21 @@
      "pi80_high": 64.3,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Victor Wembanyama: +8.8 BPM over the last two seasons, 9% of the rotation",
+       "wins": 5.7
+      },
+      {
+       "text": "94% of last season's minutes return (average 66%)",
+       "wins": 3.6
+      },
+      {
+       "text": "Stephon Castle: -0.7 BPM over the last two seasons, 11% of the rotation",
+       "wins": -0.8
+      }
+     ]
     },
     {
      "team": "HOU",
@@ -285,7 +524,21 @@
      "pi80_high": 61.7,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Kevin Durant: +3.9 BPM over the last two seasons, 14% of the rotation",
+       "wins": 3.6
+      },
+      {
+       "text": "Alperen Sengun: +4.3 BPM over the last two seasons, 11% of the rotation",
+       "wins": 3.3
+      },
+      {
+       "text": "Marcus Smart: -2.0 BPM over the last two seasons, 8% of the rotation",
+       "wins": -1.4
+      }
+     ]
     },
     {
      "team": "DEN",
@@ -300,7 +553,21 @@
      "pi80_high": 60.3,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Nikola Joki\u0107: +13.7 BPM over the last two seasons, 13% of the rotation",
+       "wins": 12.4
+      },
+      {
+       "text": "Jamal Murray: +2.5 BPM over the last two seasons, 13% of the rotation",
+       "wins": 2.1
+      },
+      {
+       "text": "Julian Strawther: -3.7 BPM over the last two seasons, 7% of the rotation (role based on his larger 2024-25 workload; 861 min in 2025-26)",
+       "wins": -2.0
+      }
+     ]
     },
     {
      "team": "MIN",
@@ -315,7 +582,21 @@
      "pi80_high": 55.7,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Anthony Edwards: +4.4 BPM over the last two seasons, 15% of the rotation (role based on his larger 2024-25 workload; 2137 min in 2025-26)",
+       "wins": 4.3
+      },
+      {
+       "text": "Cody Williams: -6.2 BPM over the last two seasons, 8% of the rotation",
+       "wins": -3.9
+      },
+      {
+       "text": "Jonathan Kuminga: -1.2 BPM over the last two seasons, 6% of the rotation (role based on his larger 2024-25 workload; 830 min in 2025-26)",
+       "wins": -0.6
+      }
+     ]
     },
     {
      "team": "LAL",
@@ -330,7 +611,21 @@
      "pi80_high": 55.7,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Luka Don\u010di\u0107: +8.2 BPM over the last two seasons, 12% of the rotation",
+       "wins": 7.0
+      },
+      {
+       "text": "42% of last season's minutes return (average 66%)",
+       "wins": -2.9
+      },
+      {
+       "text": "Dalton Knecht: -2.3 BPM over the last two seasons, 8% of the rotation (role based on his larger 2024-25 workload; 553 min in 2025-26)",
+       "wins": -1.5
+      }
+     ]
     },
     {
      "team": "PHX",
@@ -345,7 +640,21 @@
      "pi80_high": 53.6,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Collin Gillespie: +2.5 BPM over the last two seasons, 11% of the rotation",
+       "wins": 1.8
+      },
+      {
+       "text": "Dillon Brooks: -1.8 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1702 min in 2025-26)",
+       "wins": -1.7
+      },
+      {
+       "text": "Ryan Dunn: -2.5 BPM over the last two seasons, 7% of the rotation",
+       "wins": -1.4
+      }
+     ]
     },
     {
      "team": "GSW",
@@ -360,7 +669,21 @@
      "pi80_high": 53.0,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Stephen Curry: +6.0 BPM over the last two seasons, 13% of the rotation (role based on his larger 2024-25 workload; 1329 min in 2025-26)",
+       "wins": 5.3
+      },
+      {
+       "text": "Rotation average age 30.9 (average 27.5)",
+       "wins": -3.5
+      },
+      {
+       "text": "Georges Niang: -2.3 BPM in 2024-25 (missed 2025-26), 10% of the rotation",
+       "wins": -1.8
+      }
+     ]
     },
     {
      "team": "POR",
@@ -375,7 +698,21 @@
      "pi80_high": 52.6,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Damian Lillard: +4.0 BPM in 2024-25 (missed 2025-26), 11% of the rotation",
+       "wins": 2.9
+      },
+      {
+       "text": "Deni Avdija: +3.2 BPM over the last two seasons, 11% of the rotation",
+       "wins": 2.4
+      },
+      {
+       "text": "Sidy Cissoko: -4.1 BPM over the last two seasons, 7% of the rotation",
+       "wins": -2.3
+      }
+     ]
     },
     {
      "team": "NOP",
@@ -390,7 +727,21 @@
      "pi80_high": 46.9,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Zion Williamson: +4.2 BPM over the last two seasons, 10% of the rotation",
+       "wins": 2.7
+      },
+      {
+       "text": "Rotation average age 24.9 (average 27.5)",
+       "wins": 2.7
+      },
+      {
+       "text": "85% of last season's minutes return (average 66%)",
+       "wins": 2.4
+      }
+     ]
     },
     {
      "team": "DAL",
@@ -405,7 +756,21 @@
      "pi80_high": 45.9,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Zaccharie Risacher: -3.1 BPM over the last two seasons, 11% of the rotation (role based on his larger 2024-25 workload; 1503 min in 2025-26)",
+       "wins": -2.6
+      },
+      {
+       "text": "Kyrie Irving: +3.4 BPM in 2024-25 (missed 2025-26), 10% of the rotation",
+       "wins": 2.4
+      },
+      {
+       "text": "Santi Aldama: +2.6 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1198 min in 2025-26)",
+       "wins": 1.6
+      }
+     ]
     },
     {
      "team": "MEM",
@@ -420,7 +785,21 @@
      "pi80_high": 45.2,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Ty Jerome: +5.0 BPM over the last two seasons, 9% of the rotation (role based on his larger 2024-25 workload; 339 min in 2025-26)",
+       "wins": 3.0
+      },
+      {
+       "text": "Walter Clayton Jr.: -4.3 BPM in 2025-26, 9% of the rotation",
+       "wins": -3.0
+      },
+      {
+       "text": "Rotation average age 25.7 (average 27.5)",
+       "wins": 1.9
+      }
+     ]
     },
     {
      "team": "LAC",
@@ -435,7 +814,21 @@
      "pi80_high": 40.2,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Gradey Dick: -3.4 BPM over the last two seasons, 8% of the rotation (role based on his larger 2024-25 workload; 1067 min in 2025-26)",
+       "wins": -2.1
+      },
+      {
+       "text": "Rotation average age 29.6 (average 27.5)",
+       "wins": -2.1
+      },
+      {
+       "text": "Darius Garland: +1.9 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1344 min in 2025-26)",
+       "wins": 1.4
+      }
+     ]
     },
     {
      "team": "UTA",
@@ -450,7 +843,21 @@
      "pi80_high": 37.9,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Ace Bailey: -4.4 BPM in 2025-26, 11% of the rotation",
+       "wins": -3.8
+      },
+      {
+       "text": "Isaiah Collier: -4.0 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1517 min in 2025-26)",
+       "wins": -3.2
+      },
+      {
+       "text": "Rotation average age 24.5 (average 27.5)",
+       "wins": 3.1
+      }
+     ]
     },
     {
      "team": "SAC",
@@ -465,7 +872,21 @@
      "pi80_high": 36.8,
      "pace_wins": null,
      "diff": null,
-     "in_pi": null
+     "in_pi": null,
+     "reasons": [
+      {
+       "text": "Domantas Sabonis: +4.3 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 564 min in 2025-26)",
+       "wins": 3.7
+      },
+      {
+       "text": "Nique Clifford: -4.9 BPM in 2025-26, 10% of the rotation",
+       "wins": -3.6
+      },
+      {
+       "text": "Last season's net rating of -9.7 (league average 0.0)",
+       "wins": -3.6
+      }
+     ]
     }
    ]
   }

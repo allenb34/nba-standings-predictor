@@ -101,6 +101,19 @@ function chart(c, started) {
     <div aria-hidden="true">${rows}<div class="axis"><span></span><span class="ticks">${ticks}</span></div></div>`;
 }
 
+function reasons(conf, c, base) {
+  const sign = w => (w > 0 ? "+" : "−") + Math.abs(w).toFixed(1);
+  const items = [...c.teams].sort((a, b) => a.predicted_rank - b.predicted_rank).map(x => `
+    <details><summary>${x.predicted_rank}. ${esc(x.name)}: ${f1(x.predicted_wins)} projected wins</summary>
+      <ul>${x.reasons.map(r => `<li><strong>${sign(r.wins)} wins</strong>: ${esc(r.text)}</li>`).join("")}</ul>
+    </details>`).join("");
+  return `<h3 id="why-${conf}">Why each team is projected where it is</h3>
+    <p class="note">Each projection starts from a team with league-average inputs (${f1(base)} wins this season) and adds
+      every factor in the model. Listed are the two biggest factors and the biggest one pulling the other way, in wins
+      above (+) or below (−) average. Player shares are of the 10-man rotation the model weights.</p>
+    <div class="why">${items}</div>`;
+}
+
 function table(conf, c, started) {
   const body = c.teams.map(x => `<tr>
       <td>${x.actual_rank ?? "—"}</td>
@@ -147,6 +160,7 @@ fetch("data.json", {cache: "no-cache"}).then(r => { if (!r.ok) throw new Error(r
         ${chart(c, started)}
       </figure>
       ${table(conf, c, started)}
+      ${reasons(conf, c, d.reasons_base_wins)}
     </section>`;
   }).join("");
 }).catch(e => {

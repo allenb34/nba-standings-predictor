@@ -1,0 +1,91 @@
+team,rank,reason,wins_vs_average,base_wins,role
+ATL,1,"Jalen Wilson: -4.4 BPM over the last two seasons, 9% of the rotation (role based on his larger 2024-25 workload; 859 min in 2025-26)",-3.2,39.0,driver
+ATL,2,"Jalen Johnson: +3.4 BPM over the last two seasons, 12% of the rotation",2.6,39.0,driver
+ATL,3,"Dyson Daniels: +1.4 BPM over the last two seasons, 12% of the rotation",1.0,39.0,counterweight
+BKN,1,"Nolan Traore: -6.8 BPM in 2025-26, 7% of the rotation",-3.8,39.0,driver
+BKN,2,Last season's net rating of -10.0 (league average 0.0),-3.7,39.0,driver
+BKN,3,Rotation average age 25.6 (average 27.5),1.9,39.0,counterweight
+BOS,1,"Jayson Tatum: +5.1 BPM over the last two seasons, 14% of the rotation (role based on his larger 2024-25 workload; 522 min in 2025-26)",4.9,39.0,driver
+BOS,2,"Derrick White: +3.3 BPM over the last two seasons, 14% of the rotation",3.1,39.0,driver
+BOS,3,Rotation average age 29.8 (average 27.5),-2.3,39.0,counterweight
+CHA,1,"Kon Knueppel: +2.8 BPM in 2025-26, 13% of the rotation",2.3,39.0,driver
+CHA,2,"Dennis Schröder: -2.2 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1697 min in 2025-26)",-1.9,39.0,driver
+CHA,3,"Sion James: -2.0 BPM in 2025-26, 9% of the rotation",-1.5,39.0,counterweight
+CHI,1,"Jordan Hawkins: -5.7 BPM over the last two seasons, 8% of the rotation (role based on his larger 2024-25 workload; 692 min in 2025-26)",-3.2,39.0,driver
+CHI,2,"Patrick Williams: -4.1 BPM over the last two seasons, 9% of the rotation",-2.8,39.0,driver
+CHI,3,"Josh Giddey: +2.9 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1731 min in 2025-26)",2.2,39.0,counterweight
+CLE,1,"James Harden: +4.1 BPM over the last two seasons, 16% of the rotation",4.4,39.0,driver
+CLE,2,"Donovan Mitchell: +4.4 BPM over the last two seasons, 13% of the rotation",4.0,39.0,driver
+CLE,3,"Peyton Watson: -1.5 BPM over the last two seasons, 9% of the rotation",-1.2,39.0,counterweight
+DAL,1,"Zaccharie Risacher: -3.1 BPM over the last two seasons, 11% of the rotation (role based on his larger 2024-25 workload; 1503 min in 2025-26)",-2.6,39.0,driver
+DAL,2,"Kyrie Irving: +3.4 BPM in 2024-25 (missed 2025-26), 10% of the rotation",2.4,39.0,driver
+DAL,3,"Santi Aldama: +2.6 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1198 min in 2025-26)",1.6,39.0,counterweight
+DEN,1,"Nikola Jokić: +13.7 BPM over the last two seasons, 13% of the rotation",12.4,39.0,driver
+DEN,2,"Jamal Murray: +2.5 BPM over the last two seasons, 13% of the rotation",2.1,39.0,driver
+DEN,3,"Julian Strawther: -3.7 BPM over the last two seasons, 7% of the rotation (role based on his larger 2024-25 workload; 861 min in 2025-26)",-2.0,39.0,counterweight
+DET,1,"Cade Cunningham: +5.0 BPM over the last two seasons, 13% of the rotation",4.5,39.0,driver
+DET,2,Last season's net rating of +8.4 (league average 0.0),3.1,39.0,driver
+DET,3,"Taurean Prince: -2.0 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 611 min in 2025-26)",-1.9,39.0,counterweight
+GSW,1,"Stephen Curry: +6.0 BPM over the last two seasons, 13% of the rotation (role based on his larger 2024-25 workload; 1329 min in 2025-26)",5.3,39.0,driver
+GSW,2,Rotation average age 30.9 (average 27.5),-3.5,39.0,driver
+GSW,3,"Georges Niang: -2.3 BPM in 2024-25 (missed 2025-26), 10% of the rotation",-1.8,39.0,counterweight
+HOU,1,"Kevin Durant: +3.9 BPM over the last two seasons, 14% of the rotation",3.6,39.0,driver
+HOU,2,"Alperen Sengun: +4.3 BPM over the last two seasons, 11% of the rotation",3.3,39.0,driver
+HOU,3,"Marcus Smart: -2.0 BPM over the last two seasons, 8% of the rotation",-1.4,39.0,counterweight
+IND,1,"Tyrese Haliburton: +5.8 BPM in 2024-25 (missed 2025-26), 13% of the rotation",5.0,39.0,driver
+IND,2,Last season's net rating of -7.8 (league average 0.0),-2.9,39.0,driver
+IND,3,"Kelly Oubre Jr.: -1.9 BPM over the last two seasons, 11% of the rotation (role based on his larger 2024-25 workload; 1574 min in 2025-26)",-1.7,39.0,counterweight
+LAC,1,"Gradey Dick: -3.4 BPM over the last two seasons, 8% of the rotation (role based on his larger 2024-25 workload; 1067 min in 2025-26)",-2.1,39.0,driver
+LAC,2,Rotation average age 29.6 (average 27.5),-2.1,39.0,driver
+LAC,3,"Darius Garland: +1.9 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1344 min in 2025-26)",1.4,39.0,counterweight
+LAL,1,"Luka Dončić: +8.2 BPM over the last two seasons, 12% of the rotation",7.0,39.0,driver
+LAL,2,42% of last season's minutes return (average 66%),-2.9,39.0,driver
+LAL,3,"Dalton Knecht: -2.3 BPM over the last two seasons, 8% of the rotation (role based on his larger 2024-25 workload; 553 min in 2025-26)",-1.5,39.0,counterweight
+MEM,1,"Ty Jerome: +5.0 BPM over the last two seasons, 9% of the rotation (role based on his larger 2024-25 workload; 339 min in 2025-26)",3.0,39.0,driver
+MEM,2,"Walter Clayton Jr.: -4.3 BPM in 2025-26, 9% of the rotation",-3.0,39.0,driver
+MEM,3,Rotation average age 25.7 (average 27.5),1.9,39.0,counterweight
+MIA,1,"Giannis Antetokounmpo: +9.5 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1039 min in 2025-26)",8.0,39.0,driver
+MIA,2,Rotation average age 30.7 (average 27.5),-3.2,39.0,driver
+MIA,3,"Bam Adebayo: +2.0 BPM over the last two seasons, 14% of the rotation",1.7,39.0,counterweight
+MIL,1,"Kyle Kuzma: -3.6 BPM over the last two seasons, 10% of the rotation",-2.7,39.0,driver
+MIL,2,"AJ Green: -2.8 BPM over the last two seasons, 11% of the rotation",-2.5,39.0,driver
+MIL,3,"Tyler Herro: +2.8 BPM over the last two seasons, 13% of the rotation (role based on his larger 2024-25 workload; 1033 min in 2025-26)",2.4,39.0,counterweight
+MIN,1,"Anthony Edwards: +4.4 BPM over the last two seasons, 15% of the rotation (role based on his larger 2024-25 workload; 2137 min in 2025-26)",4.3,39.0,driver
+MIN,2,"Cody Williams: -6.2 BPM over the last two seasons, 8% of the rotation",-3.9,39.0,driver
+MIN,3,"Jonathan Kuminga: -1.2 BPM over the last two seasons, 6% of the rotation (role based on his larger 2024-25 workload; 830 min in 2025-26)",-0.6,39.0,counterweight
+NOP,1,"Zion Williamson: +4.2 BPM over the last two seasons, 10% of the rotation",2.7,39.0,driver
+NOP,2,Rotation average age 24.9 (average 27.5),2.7,39.0,driver
+NOP,3,85% of last season's minutes return (average 66%),2.4,39.0,counterweight
+NYK,1,88% of last season's minutes return (average 66%),2.9,39.0,driver
+NYK,2,"Karl-Anthony Towns: +3.5 BPM over the last two seasons, 12% of the rotation",2.8,39.0,driver
+NYK,3,Rotation average age 30.1 (average 27.5),-2.6,39.0,counterweight
+OKC,1,"Shai Gilgeous-Alexander: +11.6 BPM over the last two seasons, 16% of the rotation (role based on his larger 2024-25 workload; 2259 min in 2025-26)",12.8,39.0,driver
+OKC,2,Last season's net rating of +11.1 (league average 0.0),4.1,39.0,driver
+OKC,3,"Jared McCain: -1.5 BPM over the last two seasons, 7% of the rotation",-0.9,39.0,counterweight
+ORL,1,90% of last season's minutes return (average 66%),3.2,39.0,driver
+ORL,2,"Franz Wagner: +2.9 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1019 min in 2025-26)",1.9,39.0,driver
+ORL,3,"Tristan da Silva: -1.5 BPM over the last two seasons, 10% of the rotation",-1.3,39.0,counterweight
+PHI,1,"LeBron James: +4.7 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1989 min in 2025-26)",3.8,39.0,driver
+PHI,2,"Tyrese Maxey: +4.0 BPM over the last two seasons, 13% of the rotation",3.5,39.0,driver
+PHI,3,"Kentavious Caldwell-Pope: -1.8 BPM over the last two seasons, 11% of the rotation (role based on his larger 2024-25 workload; 1088 min in 2025-26)",-1.7,39.0,counterweight
+PHX,1,"Collin Gillespie: +2.5 BPM over the last two seasons, 11% of the rotation",1.8,39.0,driver
+PHX,2,"Dillon Brooks: -1.8 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 1702 min in 2025-26)",-1.7,39.0,driver
+PHX,3,"Ryan Dunn: -2.5 BPM over the last two seasons, 7% of the rotation",-1.4,39.0,counterweight
+POR,1,"Damian Lillard: +4.0 BPM in 2024-25 (missed 2025-26), 11% of the rotation",2.9,39.0,driver
+POR,2,"Deni Avdija: +3.2 BPM over the last two seasons, 11% of the rotation",2.4,39.0,driver
+POR,3,"Sidy Cissoko: -4.1 BPM over the last two seasons, 7% of the rotation",-2.3,39.0,counterweight
+SAC,1,"Domantas Sabonis: +4.3 BPM over the last two seasons, 12% of the rotation (role based on his larger 2024-25 workload; 564 min in 2025-26)",3.7,39.0,driver
+SAC,2,"Nique Clifford: -4.9 BPM in 2025-26, 10% of the rotation",-3.6,39.0,driver
+SAC,3,Last season's net rating of -9.7 (league average 0.0),-3.6,39.0,driver
+SAS,1,"Victor Wembanyama: +8.8 BPM over the last two seasons, 9% of the rotation",5.7,39.0,driver
+SAS,2,94% of last season's minutes return (average 66%),3.6,39.0,driver
+SAS,3,"Stephon Castle: -0.7 BPM over the last two seasons, 11% of the rotation",-0.8,39.0,counterweight
+TOR,1,"Kawhi Leonard: +6.2 BPM over the last two seasons, 12% of the rotation",5.2,39.0,driver
+TOR,2,"Scottie Barnes: +3.4 BPM over the last two seasons, 16% of the rotation",3.5,39.0,driver
+TOR,3,"Jamal Shead: -3.1 BPM over the last two seasons, 11% of the rotation",-2.6,39.0,counterweight
+UTA,1,"Ace Bailey: -4.4 BPM in 2025-26, 11% of the rotation",-3.8,39.0,driver
+UTA,2,"Isaiah Collier: -4.0 BPM over the last two seasons, 10% of the rotation (role based on his larger 2024-25 workload; 1517 min in 2025-26)",-3.2,39.0,driver
+UTA,3,Rotation average age 24.5 (average 27.5),3.1,39.0,counterweight
+WAS,1,"Bub Carrington: -4.6 BPM over the last two seasons, 13% of the rotation",-4.6,39.0,driver
+WAS,2,Last season's net rating of -11.8 (league average 0.0),-4.3,39.0,driver
+WAS,3,"Anthony Davis: +4.6 BPM over the last two seasons, 9% of the rotation (role based on his larger 2024-25 workload; 626 min in 2025-26)",2.8,39.0,counterweight
